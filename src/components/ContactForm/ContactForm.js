@@ -12,13 +12,7 @@ class ContactForm extends Component {
   onFormSubmit = evt => {
     evt.preventDefault();
     const { name, number } = this.state;
-
-    const nameInContacts = this.props.contacts.find(
-      contact => contact.name.toLowerCase() === name.toLowerCase()
-    );
-    nameInContacts
-      ? alert(`${name} is already in contacts`)
-      : this.props.onSubmit({ id: nanoid(), name, number });
+    this.props.onSubmit({ id: nanoid(), name, number });
 
     this.resetForm();
   };
